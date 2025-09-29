@@ -198,9 +198,11 @@ if __name__ == '__main__':
     print("🔗 WebSocket server listening...")
     
     # Run the application
-    socketio.run(app, 
-                host='localhost',
-                port=5000, 
-                debug=True, 
-                use_reloader=False,  # Disable reloader to prevent duplicate background threads
-                allow_unsafe_werkzeug=True)
+    import os
+
+socketio.run(app,
+             host="0.0.0.0",
+             port=int(os.environ.get("PORT", 5000)),
+             debug=False,
+             use_reloader=False,
+             allow_unsafe_werkzeug=True)

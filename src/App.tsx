@@ -25,7 +25,7 @@ function App() {
 
   // Initialize socket connection
   useEffect(() => {
-    const newSocket = io('http://localhost:5000', {
+    const newSocket = io('https://railoptx-sih25.onrender.com', {
       transports: ['websocket', 'polling']
     });
 
@@ -103,7 +103,7 @@ function App() {
 
   const handleAcceptSuggestion = async (suggestionId: string, conflictId: string) => {
     try {
-      const response = await fetch('http://localhost:5000/api/accept-suggestion', {
+      const response = await fetch('https://railoptx-sih25.onrender.com/api/accept-suggestion', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
